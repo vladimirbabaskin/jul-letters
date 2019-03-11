@@ -4,8 +4,14 @@
 
 	<form action="{{ url("/admin/$letter->id") }}"
 	      method="post">
-		{{ method_field('put') }}
-		{{ csrf_field() }}
+		<input type="hidden"
+		       name="_method"
+		       value="put">
+		<input type="hidden"
+		       name="_token"
+		       value="{{ csrf_token() }}">
+{{--		{{ method_field('put') }}--}}
+{{--		{{ csrf_field() }}--}}
 		<p>
 			<input type="text"
 			       name="title"

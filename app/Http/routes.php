@@ -94,16 +94,8 @@
      */
     Route::put(
             '/admin/{letter}',
-            function (Letter $letter) {
-                /**
-                 * Delete
-                 */
-                var_dump($letter);
-                //exit();
-                $letter->update();
-                /**
-                 * Redirect
-                 */
-                return redirect('/admin/');
+            function (Request $request, Letter $letter) {
+                $letter->update($request->all());
+                return redirect("/admin/");
             }
     );
